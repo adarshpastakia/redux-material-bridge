@@ -25,6 +25,7 @@ var _material = require("../material");
 
 require("./phonelib");
 
+// Email Input
 var _ReduxEmailInput = function _ReduxEmailInput(props) {
   return _react2["default"].createElement(_reduxForm.Field, _extends({ type: "email", component: _material.MuiTextField }, props, { normalize: function (value) {
       return value.toLowerCase();
@@ -34,6 +35,7 @@ _ReduxEmailInput.muiName = "ReduxEmailInput";
 var ReduxEmailInput = _ReduxEmailInput;
 
 exports.ReduxEmailInput = ReduxEmailInput;
+// Phone Input
 var testValue = function testValue(value) {
   return (value || "").length > 0 && !/^\+/.test(value + '') ? "+" + value : value;
 };
@@ -50,4 +52,6 @@ var _ReduxPhoneInput = function _ReduxPhoneInput(_ref) {
 };
 _ReduxPhoneInput.muiName = "ReduxPhoneInput";
 var ReduxPhoneInput = _ReduxPhoneInput;
+
 exports.ReduxPhoneInput = ReduxPhoneInput;
+// Date Input

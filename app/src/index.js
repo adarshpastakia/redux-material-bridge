@@ -17,7 +17,7 @@ import "react-shared/dist/redux/phonelib";
 // Main app view fragment
 ReactDOM.render((
   <ReduxRoot reducers={reducer}>
-    <MuiTheme primary={blue} accent={pink} grey={blueGrey} type="light">
+    <MuiTheme primary={blue} accent={pink} grey={blueGrey} type="light" font="Open Sans">
       <MuiRootContainer withFooter>
         <App/>
 

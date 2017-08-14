@@ -41,7 +41,7 @@ import {
   MuiMenuGroup,
   MuiIconMenuItem
 } from "react-shared";
-import {UnknownRoute, Login, Table, Home, Form} from "../index";
+import {UnknownRoute, Login, Table, Home, Form, Tabs} from "../index";
 
 import reactLogo from "../../assets/react.svg";
 import reduxLogo from "../../assets/redux.svg";
@@ -205,6 +205,7 @@ class _App extends Component {
             <MuiMenuGroup title="Examples">
               <MuiMenuLink indent to="/login" title="Login"/>
               <MuiMenuLink indent to="/form" title="Form"/>
+              <MuiMenuLink indent to="/tabs" title="Tabs"/>
               <MuiMenuLink indent to="/table" title="Table"/>
             </MuiMenuGroup>
           </List>
@@ -215,6 +216,7 @@ class _App extends Component {
           <Route path="/form" component={Form}/>
           <Route path="/login" component={Login}/>
           <Route path="/table" component={Table}/>
+          <Route path="/tabs" component={Tabs}/>
           <Route component={UnknownRoute}/>
         </ReduxSwitch>
       </MuiAppContainer>

@@ -30,9 +30,9 @@ var _AppHeader = require("./AppHeader");
 
 exports.MuiAppHeader = _interopRequire(_AppHeader);
 
-var _StickySection = require("./StickySection");
+var _Sections = require("./Sections");
 
-exports.MuiStickySection = _interopRequire(_StickySection);
+_defaults(exports, _interopExportWildcard(_Sections, _defaults));
 
 var _MenuLink = require("./MenuLink");
 

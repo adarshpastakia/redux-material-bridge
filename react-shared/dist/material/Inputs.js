@@ -81,7 +81,7 @@ var _TextField = function _TextField(_ref2) {
 };
 _TextField.muiName = "MuiTextField";
 _TextField.propTypes = {
-  label: _propTypes.PropTypes.string.isRequired,
+  label: _propTypes.PropTypes.string,
   inputRef: _propTypes.PropTypes.func,
   tabIdx: _propTypes.PropTypes.number
 };

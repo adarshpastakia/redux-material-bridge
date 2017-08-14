@@ -21,7 +21,7 @@ import {
 import {withStyles, createStyleSheet} from "material-ui/styles";
 import {Search} from "material-ui-icons";
 
-import {MuiStickySection, MuiCustomTextField} from "react-shared";
+import {MuiSection, MuiStickySection, MuiCustomTextField} from "react-shared";
 
 const styleSheet = createStyleSheet(theme => ({padded: theme.padded}));
 
@@ -110,12 +110,12 @@ class _Table extends Component {
     const {classes} = this.props;
     const {sortColumn, sortOrder, filterValue} = this.state;
     return (
-      <div className={classes.padded}>
-        <MuiStickySection>
+      <MuiSection>
+        <MuiStickySection padding="h">
           <Toolbar disableGutters>
             <Typography type="headline" color="accent">Table Example</Typography>
             <Grid item xs/>
-            <MuiCustomTextField label="Filter" size={30} icon={(<Search/>)} value={filterValue} handleChange={filterValue => this.setState({filterValue})}/>
+            <MuiCustomTextField shrinkLabel={true} placeholder="Filter list..." label="Filter" size={30} icon={(<Search/>)} value={filterValue} handleChange={filterValue => this.setState({filterValue})}/>
           </Toolbar>
           <Table>
             <TableHead>
@@ -142,7 +142,7 @@ class _Table extends Component {
             ))}
           </TableBody>
         </Table>
-      </div>
+      </MuiSection>
     );
   }
 }

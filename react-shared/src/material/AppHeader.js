@@ -45,10 +45,13 @@ const _AppHeader = ({
   children,
   classes,
   openMenu,
+  height = 64,
   ...rest
 }) => {
   return (
-    <AppBar position="fixed" {...rest}>
+    <AppBar position="fixed" {...rest} style={{
+      height
+    }}>
       <Toolbar className={classes.headerToolbar} disableGutters={true}>
         {showMenuIcon === true && (
           <IconButton className={classes.menuIcon} onClick={openMenu}>

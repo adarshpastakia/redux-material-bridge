@@ -7,16 +7,16 @@ import {blue, pink, blueGrey} from "material-ui/colors";
 
 export default(({
   type = "light",
+  font = "Roboto",
   primary = blue,
   accent = pink,
   grey = blueGrey,
-  headerHeight = 64,
   children
 }) => {
   const palette = createPalette({type, primary, accent, grey});
   const typography = createTypography(palette, {
     fontSize: 13,
-    fontFamily: "'Roboto', 'Helevetica Neue', 'Segoe UI', Arial, sans-serif"
+    fontFamily: `${font}, 'Roboto', 'Helevetica Neue', 'Segoe UI', Arial, sans-serif`
   });
   Object.assign(typography.headline, {fontSize: 22});
   Object.assign(typography.title, {fontSize: 18});
@@ -48,6 +48,14 @@ export default(({
     },
     padded: {
       padding: 24
+    },
+    paddedH: {
+      paddingLeft: 24,
+      paddingRight: 24
+    },
+    paddedV: {
+      paddingTop: 24,
+      paddingBottom: 24
     },
     icon: {
       small: {
@@ -90,7 +98,6 @@ export default(({
       },
       MuiAppBar: {
         root: {
-          height: headerHeight,
           backgroundColor: palette.primary[500]
         }
       },

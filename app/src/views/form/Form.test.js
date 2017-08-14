@@ -1,7 +1,7 @@
 import React from "react";
 import {mount} from "enzyme";
 
-import App from "./App";
+import Form from "./Form";
 import reducer from "../../reducers";
 import {ReduxRoot, MuiTheme, MuiRootContainer} from "react-shared";
 
@@ -15,8 +15,9 @@ const mountWithRouter = Component => mount(
   </ReduxRoot>
 );
 
-describe("<App />", () => {
+
+describe("<Form />", () => {
   it("should work", () => {
-    const wrapper = mountWithRouter(<App/>);
+    const wrapper = mountWithRouter(<Form/>);
   });
 });

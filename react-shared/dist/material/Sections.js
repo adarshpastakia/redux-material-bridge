@@ -40,6 +40,16 @@ var styleSheet = (0, _materialUiStyles.createStyleSheet)(function (theme) {
       zIndex: 5,
       backgroundColor: theme.palette.background["default"]
     },
+    fieldset: {
+      padding: '8px 12px',
+      margin: '24px -12px',
+      borderColor: theme.palette.text.lightDivider,
+      '& > legend': {
+        fontSize: 11,
+        margin: '0 8px',
+        color: theme.palette.text.secondary
+      }
+    },
     padded: theme.padded,
     paddedH: theme.paddedH,
     paddedV: theme.paddedV
@@ -96,10 +106,32 @@ var _StickySection = function _StickySection(_ref2) {
   );
 };
 _StickySection.muiName = "StickySection";
-
 _StickySection.propTypes = {
   top: _propTypes.PropTypes.number
 };
-
 var MuiStickySection = (0, _materialUiStyles.withStyles)(styleSheet)(_StickySection);
+
 exports.MuiStickySection = MuiStickySection;
+var _FieldSet = function _FieldSet(_ref3) {
+  var legend = _ref3.legend;
+  var classes = _ref3.classes;
+  var _ref3$border = _ref3.border;
+  var border = _ref3$border === undefined ? true : _ref3$border;
+  var children = _ref3.children;
+
+  var props = _objectWithoutProperties(_ref3, ["legend", "classes", "border", "children"]);
+
+  return _react2["default"].createElement(
+    "fieldset",
+    { className: classes.fieldset },
+    legend && _react2["default"].createElement(
+      "legend",
+      null,
+      legend
+    ),
+    children
+  );
+};
+_FieldSet.muiName = "FieldSet";
+var MuiFieldSet = (0, _materialUiStyles.withStyles)(styleSheet)(_FieldSet);
+exports.MuiFieldSet = MuiFieldSet;

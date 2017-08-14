@@ -58,12 +58,16 @@ var _AppHeader = function _AppHeader(_ref) {
   var children = _ref.children;
   var classes = _ref.classes;
   var openMenu = _ref.openMenu;
+  var _ref$height = _ref.height;
+  var height = _ref$height === undefined ? 64 : _ref$height;
 
-  var rest = _objectWithoutProperties(_ref, ["title", "subtitle", "showMenuIcon", "children", "classes", "openMenu"]);
+  var rest = _objectWithoutProperties(_ref, ["title", "subtitle", "showMenuIcon", "children", "classes", "openMenu", "height"]);
 
   return _react2["default"].createElement(
     _materialUi.AppBar,
-    _extends({ position: "fixed" }, rest),
+    _extends({ position: "fixed" }, rest, { style: {
+        height: height
+      } }),
     _react2["default"].createElement(
       _materialUi.Toolbar,
       { className: classes.headerToolbar, disableGutters: true },

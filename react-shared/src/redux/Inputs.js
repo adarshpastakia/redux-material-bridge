@@ -9,10 +9,12 @@ import {MuiTextField} from "../material";
 
 import "./phonelib";
 
+// Email Input
 const _ReduxEmailInput = (props) => (<Field type="email" component={MuiTextField} {...props} normalize={value => value.toLowerCase()}/>);
 _ReduxEmailInput.muiName = "ReduxEmailInput";
 export const ReduxEmailInput = _ReduxEmailInput;
 
+// Phone Input
 const testValue = value => (value || "").length > 0 && !(/^\+/).test(value + '')
   ? "+" + value
   : value;
@@ -25,3 +27,5 @@ const _ReduxPhoneInput = ({
 };
 _ReduxPhoneInput.muiName = "ReduxPhoneInput";
 export const ReduxPhoneInput = _ReduxPhoneInput;
+
+// Date Input

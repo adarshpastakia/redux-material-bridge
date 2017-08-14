@@ -20,20 +20,20 @@ var _materialUiColors = require("material-ui/colors");
 exports["default"] = function (_ref) {
   var _ref$type = _ref.type;
   var type = _ref$type === undefined ? "light" : _ref$type;
+  var _ref$font = _ref.font;
+  var font = _ref$font === undefined ? "Roboto" : _ref$font;
   var _ref$primary = _ref.primary;
   var primary = _ref$primary === undefined ? _materialUiColors.blue : _ref$primary;
   var _ref$accent = _ref.accent;
   var accent = _ref$accent === undefined ? _materialUiColors.pink : _ref$accent;
   var _ref$grey = _ref.grey;
   var grey = _ref$grey === undefined ? _materialUiColors.blueGrey : _ref$grey;
-  var _ref$headerHeight = _ref.headerHeight;
-  var headerHeight = _ref$headerHeight === undefined ? 64 : _ref$headerHeight;
   var children = _ref.children;
 
   var palette = (0, _materialUiStyles.createPalette)({ type: type, primary: primary, accent: accent, grey: grey });
   var typography = (0, _materialUiStyles.createTypography)(palette, {
     fontSize: 13,
-    fontFamily: "'Roboto', 'Helevetica Neue', 'Segoe UI', Arial, sans-serif"
+    fontFamily: font + ", 'Roboto', 'Helevetica Neue', 'Segoe UI', Arial, sans-serif"
   });
   Object.assign(typography.headline, { fontSize: 22 });
   Object.assign(typography.title, { fontSize: 18 });
@@ -65,6 +65,14 @@ exports["default"] = function (_ref) {
     },
     padded: {
       padding: 24
+    },
+    paddedH: {
+      paddingLeft: 24,
+      paddingRight: 24
+    },
+    paddedV: {
+      paddingTop: 24,
+      paddingBottom: 24
     },
     icon: {
       small: {
@@ -107,7 +115,6 @@ exports["default"] = function (_ref) {
       },
       MuiAppBar: {
         root: {
-          height: headerHeight,
           backgroundColor: palette.primary[500]
         }
       },

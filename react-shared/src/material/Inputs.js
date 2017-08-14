@@ -62,7 +62,7 @@ const _TextField = ({
 }} required={required} margin={margin} error={!!(touched && error)} helperText={touched && error} inputRef={inputRef} tabIndex={tabIdx} label={label} onChange={(value) => input.onChange(value)} value={input.value} {...custom}/>);
 _TextField.muiName = "MuiTextField";
 _TextField.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   inputRef: PropTypes.func,
   tabIdx: PropTypes.number
 }

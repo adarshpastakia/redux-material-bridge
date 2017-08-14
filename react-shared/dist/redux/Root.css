@@ -65,7 +65,7 @@ form>button {
   font-variant: small-caps;
 }
 
-.sticky-section {
+.x-sticky-section {
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;

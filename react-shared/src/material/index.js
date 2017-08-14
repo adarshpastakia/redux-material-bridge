@@ -6,11 +6,9 @@ export {default as MuiTheme}
 from "./Theme";
 export {default as MuiAppHeader}
 from "./AppHeader";
-export {default as MuiStickySection}
-from "./StickySection";
 
+export * from "./Sections";
 export * from "./MenuLink";
-
 export * from "./Inputs";
 
 export const MuiRootContainer = ({
