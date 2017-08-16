@@ -18,12 +18,12 @@ export const ReduxEmailInput = _ReduxEmailInput;
 const testValue = value => (value || "").length > 0 && !(/^\+/).test(value + '')
   ? "+" + value
   : value;
-const parser = value => PhoneLib.format(testValue(value), "", PhoneLib.FORMAT.FULL) || value;
-const formatter = value => PhoneLib.formatInput(testValue(value), "") || value;
+const parser = value => PhoneLib.format(testValue(value), "us", PhoneLib.FORMAT.FULL) || value;
+const formatter = value => PhoneLib.formatInput(testValue(value), "us") || value;
 const _ReduxPhoneInput = ({
   ...props
 }) => {
-  return (<Field type="tel" component={MuiTextField} {...props} format={formatter} parse={parser} placeholder={PhoneLib.getExample('us', PhoneLib.FORMAT.FULL)}/>)
+  return (<Field type="tel" component={MuiTextField} {...props} format={formatter} parse={parser} placeholder={PhoneLib.getExample('us', PhoneLib.FORMAT.INTERNATIONAL)}/>)
 };
 _ReduxPhoneInput.muiName = "ReduxPhoneInput";
 export const ReduxPhoneInput = _ReduxPhoneInput;
