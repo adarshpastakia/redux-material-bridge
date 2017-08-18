@@ -27,7 +27,7 @@ var _materialUi = require("material-ui");
 
 var _materialUiStyles = require('material-ui/styles');
 
-var styleSheet = (0, _materialUiStyles.createStyleSheet)(function (theme) {
+var styleSheet = function styleSheet(theme) {
   return {
     link: {
       color: theme.palette.text.primary,
@@ -83,7 +83,7 @@ var styleSheet = (0, _materialUiStyles.createStyleSheet)(function (theme) {
       marginRight: 0
     }
   };
-});
+};
 
 // MenuLink
 var _MenuLink = function _MenuLink(_ref) {

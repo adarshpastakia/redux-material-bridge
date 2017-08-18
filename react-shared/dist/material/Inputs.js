@@ -169,14 +169,14 @@ var MuiRadioGroup = _RadioGroup;
 
 exports.MuiRadioGroup = MuiRadioGroup;
 // CustomTextField
-var styleSheet = (0, _materialUiStyles.createStyleSheet)({
+var styleSheet = {
   labelFormControl: {
     transform: "translate(32px, 23px) scale(1)"
   },
   labelShrink: {
     transform: "translate(0,0) scale(.75)"
   }
-});
+};
 var _MuiCustomTextField = function _MuiCustomTextField(_ref6) {
   var _ref6$id = _ref6.id;
   var id = _ref6$id === undefined ? "MuiControl" + new Date().getTime() : _ref6$id;

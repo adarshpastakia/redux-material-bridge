@@ -21,7 +21,7 @@ var _propTypes = require("prop-types");
 
 var _materialUiStyles = require('material-ui/styles');
 
-var styleSheet = (0, _materialUiStyles.createStyleSheet)(function (theme) {
+var styleSheet = function styleSheet(theme) {
   return {
     section: {
       '&$padded > .x-sticky-section': {
@@ -54,7 +54,7 @@ var styleSheet = (0, _materialUiStyles.createStyleSheet)(function (theme) {
     paddedH: theme.paddedH,
     paddedV: theme.paddedV
   };
-});
+};
 
 var _Section = function _Section(_ref) {
   var className = _ref.className;

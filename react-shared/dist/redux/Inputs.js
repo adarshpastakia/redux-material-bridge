@@ -36,19 +36,16 @@ var ReduxEmailInput = _ReduxEmailInput;
 
 exports.ReduxEmailInput = ReduxEmailInput;
 // Phone Input
-var testValue = function testValue(value) {
-  return (value || "").length > 0 && !/^\+/.test(value + '') ? "+" + value : value;
-};
 var parser = function parser(value) {
-  return PhoneLib.format(testValue(value), "", PhoneLib.FORMAT.FULL) || value;
+  return PhoneLib.format(value, "us", PhoneLib.FORMAT.FULL) || value;
 };
 var formatter = function formatter(value) {
-  return PhoneLib.formatInput(testValue(value), "") || value;
+  return PhoneLib.formatInput(value, "us") || value;
 };
 var _ReduxPhoneInput = function _ReduxPhoneInput(_ref) {
   var props = _objectWithoutProperties(_ref, []);
 
-  return _react2["default"].createElement(_reduxForm.Field, _extends({ type: "tel", component: _material.MuiTextField }, props, { format: formatter, parse: parser, placeholder: PhoneLib.getExample('us', PhoneLib.FORMAT.FULL) }));
+  return _react2["default"].createElement(_reduxForm.Field, _extends({ type: "tel", component: _material.MuiTextField }, props, { format: formatter, parse: parser, placeholder: PhoneLib.getExample('us', PhoneLib.FORMAT.INTERNATIONAL) }));
 };
 _ReduxPhoneInput.muiName = "ReduxPhoneInput";
 var ReduxPhoneInput = _ReduxPhoneInput;

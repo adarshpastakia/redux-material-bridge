@@ -14,9 +14,9 @@ import {
   Typography
 } from "material-ui";
 import {Menu} from "material-ui-icons";
-import {withStyles, createStyleSheet} from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 
-const styleSheet = createStyleSheet(theme => ({
+const styleSheet = (theme => ({
   headerToolbar: {
     padding: 0,
     minHeight: 48

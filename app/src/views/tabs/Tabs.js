@@ -13,11 +13,11 @@ import {
   Tabs,
   Tab
 } from "material-ui";
-import {withStyles, createStyleSheet} from "material-ui/styles";
+import {withStyles} from "material-ui/styles";
 
 import {MuiSection} from "react-shared";
 
-const styleSheet = createStyleSheet(theme => ({
+const styleSheet = (theme => ({
   card: {
     maxWidth: 600,
     minHeight: 400,
@@ -37,7 +37,7 @@ class _Tabs extends Component {
         <Typography type="headline" color="accent">Tabs Example</Typography>
         <Card className={classes.card}>
           <AppBar color="default" position="static">
-            <Tabs index={this.state.tabSelected} textColor="accent" onChange={(event, tabSelected) => this.setState({tabSelected})}>
+            <Tabs value={this.state.tabSelected} textColor="accent" onChange={(event, tabSelected) => this.setState({tabSelected})}>
               <Tab label="Item One"/>
               <Tab label="Item Two"/>
               <Tab label="Item Three"/>

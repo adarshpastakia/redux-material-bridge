@@ -18,12 +18,12 @@ import {
   TableRow,
   TableSortLabel
 } from "material-ui";
-import {withStyles, createStyleSheet} from "material-ui/styles";
+import {withStyles} from "material-ui/styles";
 import {Search} from "material-ui-icons";
 
 import {MuiSection, MuiStickySection, MuiCustomTextField} from "react-shared";
 
-const styleSheet = createStyleSheet(theme => ({padded: theme.padded}));
+const styleSheet = (theme => ({padded: theme.padded}));
 
 const columnData = [
   {

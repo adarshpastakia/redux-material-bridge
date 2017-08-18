@@ -4,9 +4,9 @@
 import React from "react";
 import {PropTypes} from "prop-types";
 
-import {withStyles, createStyleSheet} from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 
-const styleSheet = createStyleSheet(theme => ({
+const styleSheet = (theme => ({
   section: {
     '&$padded > .x-sticky-section': {
       margin: -24,

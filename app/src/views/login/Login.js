@@ -15,7 +15,7 @@ import {
   Button,
   Grid
 } from "material-ui";
-import {withStyles, createStyleSheet} from "material-ui/styles";
+import {withStyles} from "material-ui/styles";
 
 import {MuiForm, MuiTextField, MuiCheckbox, MuiSection} from "react-shared";
 import loginMedia from "../../assets/login-media1.jpg";
@@ -31,7 +31,7 @@ const validate = values => {
   return errors
 }
 
-const styleSheet = createStyleSheet(theme => ({
+const styleSheet = (theme => ({
   loginCard: {
     margin: "5em auto 0",
     maxWidth: 400
@@ -72,7 +72,7 @@ class _Login extends Component {
       <MuiSection>
         <Card className={classes.loginCard}>
           <CardHeader className={classes.cardHeader} title="Login"></CardHeader>
-          <CardMedia className={classes.cardMedia}>
+          <CardMedia className={classes.cardMedia} image={loginMedia}>
             <div>Login</div>
           </CardMedia>
           <CardContent>

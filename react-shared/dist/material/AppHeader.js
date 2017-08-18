@@ -27,7 +27,7 @@ var _materialUiIcons = require("material-ui-icons");
 
 var _materialUiStyles = require('material-ui/styles');
 
-var styleSheet = (0, _materialUiStyles.createStyleSheet)(function (theme) {
+var styleSheet = function styleSheet(theme) {
   return {
     headerToolbar: {
       padding: 0,
@@ -49,7 +49,7 @@ var styleSheet = (0, _materialUiStyles.createStyleSheet)(function (theme) {
       }
     }
   };
-});
+};
 
 var _AppHeader = function _AppHeader(_ref) {
   var title = _ref.title;

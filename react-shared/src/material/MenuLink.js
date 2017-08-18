@@ -7,9 +7,9 @@ import {NavLink} from "react-router-dom";
 
 // MaterialUI
 import {MenuItem, ListItem, ListItemText, ListItemIcon, ListSubheader} from "material-ui";
-import {withStyles, createStyleSheet} from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 
-const styleSheet = createStyleSheet(theme => ({
+const styleSheet = (theme => ({
   link: {
     color: theme.palette.text.primary,
     textDecoration: 'none',

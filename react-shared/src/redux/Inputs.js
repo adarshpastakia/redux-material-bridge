@@ -15,11 +15,8 @@ _ReduxEmailInput.muiName = "ReduxEmailInput";
 export const ReduxEmailInput = _ReduxEmailInput;
 
 // Phone Input
-const testValue = value => (value || "").length > 0 && !(/^\+/).test(value + '')
-  ? "+" + value
-  : value;
-const parser = value => PhoneLib.format(testValue(value), "us", PhoneLib.FORMAT.FULL) || value;
-const formatter = value => PhoneLib.formatInput(testValue(value), "us") || value;
+const parser = value => PhoneLib.format(value, "us", PhoneLib.FORMAT.FULL) || value;
+const formatter = value => PhoneLib.formatInput(value, "us") || value;
 const _ReduxPhoneInput = ({
   ...props
 }) => {

@@ -6,7 +6,7 @@ import {PropTypes} from "prop-types";
 
 import {IconButton} from "material-ui";
 import {Clear, ModeEdit} from "material-ui-icons";
-import {withStyles, createStyleSheet} from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 
 import {
   TextField,
@@ -128,7 +128,7 @@ _RadioGroup.propTypes = {
 export const MuiRadioGroup = _RadioGroup;
 
 // CustomTextField
-const styleSheet = createStyleSheet({
+const styleSheet = ({
   labelFormControl: {
     transform: "translate(32px, 23px) scale(1)"
   },

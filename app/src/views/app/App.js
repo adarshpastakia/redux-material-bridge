@@ -31,7 +31,7 @@ import {
   AccountBox,
   Clear
 } from "material-ui-icons";
-import {withStyles, createStyleSheet} from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 
 import {
   ReduxSwitch,
@@ -47,7 +47,7 @@ import reactLogo from "../../assets/react.svg";
 import reduxLogo from "../../assets/redux.svg";
 import materialLogo from "../../assets/material.svg";
 
-const styleSheet = createStyleSheet(({
+const styleSheet = (({
   palette,
   colors,
   ...theme

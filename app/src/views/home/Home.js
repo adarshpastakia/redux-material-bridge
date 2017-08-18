@@ -6,14 +6,14 @@ import {connect} from "react-redux";
 
 // MaterialUI
 import {Typography, Grid, Card, CardHeader, Button} from "material-ui";
-import {withStyles, createStyleSheet} from "material-ui/styles";
+import {withStyles} from "material-ui/styles";
 import {lightBlue} from "material-ui/colors";
 
 import reactLogo from "../../assets/react.png";
 import reduxLogo from "../../assets/redux.png";
 import materialLogo from "../../assets/material.png";
 
-const styleSheet = createStyleSheet(theme => ({
+const styleSheet = (theme => ({
   padded: theme.padded,
   banner: {
     padding: '3em 1em',

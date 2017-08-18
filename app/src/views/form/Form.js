@@ -19,7 +19,7 @@ import {
   ListItemIcon,
   ListItemText
 } from "material-ui";
-import {withStyles, createStyleSheet} from "material-ui/styles";
+import {withStyles} from "material-ui/styles";
 
 import {
   MuiForm,
@@ -43,10 +43,13 @@ const validate = values => {
   if (!values.email) {
     errors.email = "Required"
   }
+  if (!values.phone) {
+    errors.phone = "Required"
+  }
   return errors
 }
 
-const styleSheet = createStyleSheet(theme => ({padded: theme.padded}));
+const styleSheet = (theme => ({padded: theme.padded}));
 
 const initialValues = {
   firstName: '',
@@ -61,9 +64,7 @@ class _Form extends Component {
   }
 
   handleReset() {
-    this
-      .props
-      .reset();
+    this.props.reset();
     setTimeout(() => this.userInput.focus(), 100);
   }
 
@@ -96,9 +97,7 @@ class _Form extends Component {
                   </MuiFieldSet>
                 </MuiForm>
                 <Grid container justify="flex-end">
-                  <Button onClick={this
-                    .handleReset
-                    .bind(this)} color="primary">Reset</Button>
+                  <Button onClick={this.handleReset.bind(this)} color="primary">Reset</Button>
                   <Button onClick={handleSubmit(values => console.log(values))} raised color="primary">Submit</Button>
                 </Grid>
               </MuiSection>
