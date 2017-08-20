@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://adarshpastakia.github.io/redux-material-bridge/",
-  "dependencies":
-  {
+  "dependencies": {
     "material-ui": "^1.0.0-beta.5",
     "material-ui-icons": "^1.0.0-alpha.19",
     "moment": "^2.18.1",
@@ -21,8 +20,7 @@
     "redux-router": "^2.1.2",
     "redux-thunk": "^2.2.0"
   },
-  "scripts":
-  {
+  "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -30,8 +28,7 @@
     "pages": "gh-pages -d build",
     "deploy": "npm run build && gh-pages -d build"
   },
-  "devDependencies":
-  {
+  "devDependencies": {
     "enzyme": "^2.9.1",
     "gh-pages": "^1.0.0",
     "react-test-renderer": "^15.6.1",
