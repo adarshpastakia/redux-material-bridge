@@ -7,7 +7,7 @@ import {Field} from "redux-form";
 
 import {MuiTextField} from "../material";
 
-import "./phonelib";
+import "../shared/phonelib";
 
 // Email Input
 const _ReduxEmailInput = (props) => (<Field type="email" component={MuiTextField} {...props} normalize={value => value.toLowerCase()}/>);

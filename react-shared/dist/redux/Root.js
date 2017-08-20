@@ -33,7 +33,7 @@ var _historyCreateBrowserHistory = require("history/createBrowserHistory");
 
 var _historyCreateBrowserHistory2 = _interopRequireDefault(_historyCreateBrowserHistory);
 
-require("./Root.css");
+require("../shared/Root.css");
 
 var ReduxRoot = function ReduxRoot(_ref) {
   var _ref$reducers = _ref.reducers;

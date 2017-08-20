@@ -17,7 +17,7 @@ import {ConnectedRouter, routerMiddleware} from "react-router-redux";
 import thunk from "redux-thunk";
 import createHistory from "history/createBrowserHistory";
 
-import "./Root.css";
+import "../shared/Root.css";
 
 export const ReduxRoot = (({
   reducers = {},

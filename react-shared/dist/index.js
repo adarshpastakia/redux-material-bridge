@@ -11,6 +11,8 @@ function _interopExportWildcard(obj, defaults) { var newObj = defaults({}, obj);
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
+require("./shared/phonelib");
+
 var _redux = require("./redux");
 
 _defaults(exports, _interopExportWildcard(_redux, _defaults));
@@ -18,3 +20,16 @@ _defaults(exports, _interopExportWildcard(_redux, _defaults));
 var _material = require("./material");
 
 _defaults(exports, _interopExportWildcard(_material, _defaults));
+
+var PhoneLib = window.PhoneLib;
+
+exports.PhoneLib = PhoneLib;
+var checkPhone = function checkPhone(v) {
+  return PhoneLib.isValid(v);
+};
+exports.checkPhone = checkPhone;
+var checkEmail = function checkEmail(v) {
+  return (/[\w\W]*\@[\w\W]*\.[\w]{2,}/.test(v)
+  );
+};
+exports.checkEmail = checkEmail;

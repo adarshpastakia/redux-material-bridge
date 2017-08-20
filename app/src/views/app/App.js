@@ -40,7 +40,7 @@ import {
   MuiMenuLink,
   MuiMenuGroup,
   MuiIconMenuItem
-} from "react-shared";
+} from "redux-material-bridge";
 import {UnknownRoute, Login, Table, Home, Form, Tabs} from "../index";
 
 import reactLogo from "../../assets/react.svg";

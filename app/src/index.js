@@ -6,13 +6,13 @@ import ReactDOM from "react-dom";
 
 import {blue, pink, blueGrey} from "material-ui/colors";
 
-import {ReduxRoot, MuiTheme, MuiRootContainer} from "react-shared";
+import {ReduxRoot, MuiTheme, MuiRootContainer} from "redux-material-bridge";
 
 import {App} from "./views";
 import reducer from "./reducers";
 import registerServiceWorker from "./registerServiceWorker";
 
-import "react-shared/dist/redux/phonelib";
+// import "redux-material-bridge/dist/redux/phonelib";
 
 // Main app view fragment
 ReactDOM.render((

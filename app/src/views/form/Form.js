@@ -22,6 +22,9 @@ import {
 import {withStyles} from "material-ui/styles";
 
 import {
+  checkEmail,
+  checkPhone,
+  PhoneLib,
   MuiForm,
   MuiTextField,
   MuiCheckbox,
@@ -30,7 +33,7 @@ import {
   MuiSection,
   MuiFieldSet,
   MuiStickySection
-} from "react-shared";
+} from "redux-material-bridge";
 
 const validate = values => {
   const errors = {}
@@ -45,6 +48,12 @@ const validate = values => {
   }
   if (!values.phone) {
     errors.phone = "Required"
+  }
+  if (!checkPhone(values.phone)) {
+    errors.phone = "Invalid phone"
+  }
+  if (!checkEmail(values.email)) {
+    errors.email = "Invalid email"
   }
   return errors
 }
@@ -109,16 +118,16 @@ class _Form extends Component {
                 <Typography type="headline" color="accent">Form Values</Typography>
                 <List>
                   <ListItem>
-                    <ListItemText secondary="First Name" primary={formValues.firstName || '-'}/>
+                    <ListItemText primary="First Name" secondary={formValues.firstName || '-'}/>
                   </ListItem>
                   <ListItem>
-                    <ListItemText secondary="Last Name" primary={formValues.lastName || '-'}/>
+                    <ListItemText primary="Last Name" secondary={formValues.lastName || '-'}/>
                   </ListItem>
                   <ListItem>
-                    <ListItemText secondary="Email" primary={formValues.email || '-'}/>
+                    <ListItemText primary="Email" secondary={formValues.email || '-'}/>
                   </ListItem>
                   <ListItem>
-                    <ListItemText secondary="Phone" primary={formValues.phone || '-'}/>
+                    <ListItemText primary="Phone" secondary={PhoneLib.format(formValues.phone) || '-'}/>
                   </ListItem>
                 </List>
               </MuiSection>

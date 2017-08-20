@@ -3,7 +3,7 @@ import {mount} from "enzyme";
 
 import Form from "./Form";
 import reducer from "../../reducers";
-import {ReduxRoot, MuiTheme, MuiRootContainer} from "react-shared";
+import {ReduxRoot, MuiTheme, MuiRootContainer} from "redux-material-bridge";
 
 const mountWithRouter = Component => mount(
   <ReduxRoot reducers={reducer}>

@@ -23,7 +23,7 @@ var _reduxForm = require("redux-form");
 
 var _material = require("../material");
 
-require("./phonelib");
+require("../shared/phonelib");
 
 // Email Input
 var _ReduxEmailInput = function _ReduxEmailInput(props) {

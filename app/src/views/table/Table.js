@@ -21,7 +21,7 @@ import {
 import {withStyles} from "material-ui/styles";
 import {Search} from "material-ui-icons";
 
-import {MuiSection, MuiStickySection, MuiCustomTextField} from "react-shared";
+import {MuiSection, MuiStickySection, MuiCustomTextField} from "redux-material-bridge";
 
 const styleSheet = (theme => ({padded: theme.padded}));
 

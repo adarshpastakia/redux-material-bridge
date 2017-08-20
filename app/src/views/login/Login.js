@@ -17,7 +17,7 @@ import {
 } from "material-ui";
 import {withStyles} from "material-ui/styles";
 
-import {MuiForm, MuiTextField, MuiCheckbox, MuiSection} from "react-shared";
+import {MuiForm, MuiTextField, MuiCheckbox, MuiSection} from "redux-material-bridge";
 import loginMedia from "../../assets/login-media1.jpg";
 
 const validate = values => {

@@ -2,7 +2,8 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+  "dependencies":
+  {
     "material-ui": "^1.0.0-beta.5",
     "material-ui-icons": "^1.0.0-alpha.19",
     "moment": "^2.18.1",
@@ -19,13 +20,15 @@
     "redux-router": "^2.1.2",
     "redux-thunk": "^2.2.0"
   },
-  "scripts": {
+  "scripts":
+  {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mv build/* ../docs/.",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
+  "devDependencies":
+  {
     "enzyme": "^2.9.1",
     "react-test-renderer": "^15.6.1",
     "redux-devtools": "^3.4.0"

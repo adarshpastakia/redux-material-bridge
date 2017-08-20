@@ -15,7 +15,7 @@ import {
 } from "material-ui";
 import {withStyles} from "material-ui/styles";
 
-import {MuiSection} from "react-shared";
+import {MuiSection} from "redux-material-bridge";
 
 const styleSheet = (theme => ({
   card: {
