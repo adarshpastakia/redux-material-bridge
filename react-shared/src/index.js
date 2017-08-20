@@ -9,4 +9,4 @@ export const PhoneLib = window.PhoneLib;
 
 
 export const checkPhone = (v)=>PhoneLib.isValid(v);
-export const checkEmail = (v)=>/[\w\W]*\@[\w\W]*\.[\w]{2,}/.test(v);
+export const checkEmail = (v)=>(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(v);

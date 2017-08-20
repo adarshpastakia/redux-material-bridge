@@ -29,7 +29,7 @@ var checkPhone = function checkPhone(v) {
 };
 exports.checkPhone = checkPhone;
 var checkEmail = function checkEmail(v) {
-  return (/[\w\W]*\@[\w\W]*\.[\w]{2,}/.test(v)
+  return (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(v)
   );
 };
 exports.checkEmail = checkEmail;
