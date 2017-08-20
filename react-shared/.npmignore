@@ -1,0 +1,15 @@
+# Dependency directories
+/src
+
+.DS_Store
+
+/.editorconfig
+/.gitattributes
+/.gitignore
+/.travis.yml
+/gulpfile.js
+/index.html
+/karma.conf.js
+/tsconfig.json
+/tslint.json
+/typings.json
