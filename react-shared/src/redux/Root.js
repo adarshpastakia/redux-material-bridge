@@ -21,9 +21,10 @@ import "../shared/Root.css";
 
 export const ReduxRoot = (({
   reducers = {},
+  basename = "/",
   children
 }) => {
-  const history = createHistory();
+  const history = createHistory({ basename });
   const store = createStore(combineReducers(Object.assign(reducers, {form, routing})), applyMiddleware(thunk), applyMiddleware(routerMiddleware(history)));
 
   return (

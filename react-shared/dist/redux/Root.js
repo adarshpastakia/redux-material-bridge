@@ -38,9 +38,11 @@ require("../shared/Root.css");
 var ReduxRoot = function ReduxRoot(_ref) {
   var _ref$reducers = _ref.reducers;
   var reducers = _ref$reducers === undefined ? {} : _ref$reducers;
+  var _ref$basename = _ref.basename;
+  var basename = _ref$basename === undefined ? "/" : _ref$basename;
   var children = _ref.children;
 
-  var history = (0, _historyCreateBrowserHistory2["default"])();
+  var history = (0, _historyCreateBrowserHistory2["default"])({ basename: basename });
   var store = (0, _redux.createStore)((0, _redux.combineReducers)(Object.assign(reducers, { form: _reduxForm.reducer, routing: _reactRouterRedux.routerReducer })), (0, _redux.applyMiddleware)(_reduxThunk2["default"]), (0, _redux.applyMiddleware)((0, _reactRouterRedux.routerMiddleware)(history)));
 
   return _react2["default"].createElement(

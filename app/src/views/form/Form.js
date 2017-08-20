@@ -46,14 +46,14 @@ const validate = values => {
   if (!values.email) {
     errors.email = "Required"
   }
+  else if (!checkEmail(values.email)) {
+    errors.email = "Invalid email"
+  }
   if (!values.phone) {
     errors.phone = "Required"
   }
-  if (!checkPhone(values.phone)) {
+  else if (!checkPhone(values.phone)) {
     errors.phone = "Invalid phone"
-  }
-  if (!checkEmail(values.email)) {
-    errors.email = "Invalid email"
   }
   return errors
 }

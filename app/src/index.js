@@ -16,7 +16,7 @@ import registerServiceWorker from "./registerServiceWorker";
 
 // Main app view fragment
 ReactDOM.render((
-  <ReduxRoot reducers={reducer}>
+  <ReduxRoot reducers={reducer} basename="/redux-material-bridge">
     <MuiTheme primary={blue} accent={pink} grey={blueGrey} type="light" font="Open Sans">
       <MuiRootContainer withFooter>
         <App/>
