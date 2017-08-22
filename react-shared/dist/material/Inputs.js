@@ -19,11 +19,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _propTypes = require("prop-types");
 
-var _materialUi = require("material-ui");
+var _materialUiIconButton = require("material-ui/IconButton");
+
+var _materialUiIconButton2 = _interopRequireDefault(_materialUiIconButton);
 
 var _materialUiIcons = require("material-ui-icons");
 
 var _materialUiStyles = require('material-ui/styles');
+
+var _materialUi = require("material-ui");
 
 // Form
 var _Form = function _Form(_ref) {
@@ -56,6 +60,7 @@ var _TextField = function _TextField(_ref2) {
   var input = _ref2.input;
   var label = _ref2.label;
   var tabIdx = _ref2.tabIdx;
+  var helperText = _ref2.helperText;
   var _ref2$meta = _ref2.meta;
   var touched = _ref2$meta.touched;
   var error = _ref2$meta.error;
@@ -67,7 +72,7 @@ var _TextField = function _TextField(_ref2) {
   var _ref2$margin = _ref2.margin;
   var margin = _ref2$margin === undefined ? "dense" : _ref2$margin;
 
-  var custom = _objectWithoutProperties(_ref2, ["id", "input", "label", "tabIdx", "meta", "inputRef", "shrinkLabel", "required", "margin"]);
+  var custom = _objectWithoutProperties(_ref2, ["id", "input", "label", "tabIdx", "helperText", "meta", "inputRef", "shrinkLabel", "required", "margin"]);
 
   return _react2["default"].createElement(_materialUi.TextField, _extends({ id: id, InputProps: {
       style: {
@@ -75,7 +80,7 @@ var _TextField = function _TextField(_ref2) {
       }
     }, InputLabelProps: {
       shrink: shrinkLabel
-    }, required: required, margin: margin, error: !!(touched && error), helperText: touched && error, inputRef: inputRef, tabIndex: tabIdx, label: label, onChange: function (value) {
+    }, required: required, margin: margin, error: !!(touched && error), helperText: touched && error || helperText, inputRef: inputRef, tabIndex: tabIdx, label: label, onChange: function (value) {
       return input.onChange(value);
     }, value: input.value }, custom));
 };
@@ -169,71 +174,128 @@ var MuiRadioGroup = _RadioGroup;
 
 exports.MuiRadioGroup = MuiRadioGroup;
 // CustomTextField
-var styleSheet = {
-  labelFormControl: {
-    transform: "translate(32px, 23px) scale(1)"
-  },
-  labelShrink: {
-    transform: "translate(0,0) scale(.75)"
-  }
+var styleSheet = function styleSheet(theme) {
+  return {
+    muiInputFocused: {
+      '& + $xInputIcon': {
+        color: theme.palette.primary[500]
+      }
+    },
+    muiInputError: {
+      '& + $xInputIcon': {
+        color: theme.palette.error[500]
+      }
+    },
+    xInputIcon: {
+      position: "absolute",
+      top: 22,
+      width: 20,
+      height: 20,
+      color: theme.palette.grey[500],
+      '& > svg': {
+        width: 20,
+        height: 20
+      }
+    }
+  };
 };
 var _MuiCustomTextField = function _MuiCustomTextField(_ref6) {
   var _ref6$id = _ref6.id;
   var id = _ref6$id === undefined ? "MuiControl" + new Date().getTime() : _ref6$id;
   var label = _ref6.label;
+  var _ref6$margin = _ref6.margin;
+  var margin = _ref6$margin === undefined ? "dense" : _ref6$margin;
   var _ref6$icon = _ref6.icon;
   var icon = _ref6$icon === undefined ? _react2["default"].createElement(_materialUiIcons.ModeEdit, null) : _ref6$icon;
   var clear = _ref6.clear;
-  var value = _ref6.value;
-  var shrinkLabel = _ref6.shrinkLabel;
-  var helperText = _ref6.helperText;
   var classes = _ref6.classes;
+  var shrinkLabel = _ref6.shrinkLabel;
+  var _ref6$input = _ref6.input;
+  var input = _ref6$input === undefined ? {} : _ref6$input;
+  var _ref6$meta = _ref6.meta;
+  var meta = _ref6$meta === undefined ? {} : _ref6$meta;
   var _ref6$size = _ref6.size;
   var size = _ref6$size === undefined ? 20 : _ref6$size;
   var _ref6$handleChange = _ref6.handleChange;
   var handleChange = _ref6$handleChange === undefined ? function () {
     return true;
   } : _ref6$handleChange;
+  var autoComplete = _ref6.autoComplete;
+  var autoFocus = _ref6.autoFocus;
+  var className = _ref6.className;
+  var defaultValue = _ref6.defaultValue;
+  var disabled = _ref6.disabled;
+  var inputClassName = _ref6.inputClassName;
+  var InputClassName = _ref6.InputClassName;
+  var _ref6$InputProps = _ref6.InputProps;
+  var InputProps = _ref6$InputProps === undefined ? {} : _ref6$InputProps;
+  var _ref6$inputProps = _ref6.inputProps;
+  var inputProps = _ref6$inputProps === undefined ? {} : _ref6$inputProps;
+  var inputRef = _ref6.inputRef;
+  var labelClassName = _ref6.labelClassName;
+  var InputLabelProps = _ref6.InputLabelProps;
+  var helperText = _ref6.helperText;
+  var helperTextClassName = _ref6.helperTextClassName;
+  var FormHelperTextProps = _ref6.FormHelperTextProps;
+  var fullWidth = _ref6.fullWidth;
+  var required = _ref6.required;
+  var type = _ref6.type;
+  var multiline = _ref6.multiline;
+  var name = _ref6.name;
+  var placeholder = _ref6.placeholder;
+  var rootRef = _ref6.rootRef;
+  var rows = _ref6.rows;
+  var rowsMax = _ref6.rowsMax;
+  var _ref6$value = _ref6.value;
+  var value = _ref6$value === undefined ? '' : _ref6$value;
 
-  var custom = _objectWithoutProperties(_ref6, ["id", "label", "icon", "clear", "value", "shrinkLabel", "helperText", "classes", "size", "handleChange"]);
+  var other = _objectWithoutProperties(_ref6, ["id", "label", "margin", "icon", "clear", "classes", "shrinkLabel", "input", "meta", "size", "handleChange", "autoComplete", "autoFocus", "className", "defaultValue", "disabled", "inputClassName", "InputClassName", "InputProps", "inputProps", "inputRef", "labelClassName", "InputLabelProps", "helperText", "helperTextClassName", "FormHelperTextProps", "fullWidth", "required", "type", "multiline", "name", "placeholder", "rootRef", "rows", "rowsMax", "value"]);
 
-  var labelProps = {};
-  if (shrinkLabel) labelProps = {
-    shrink: true
+  if (shrinkLabel) other.shrink = true;
+
+  if (input.onChange) handleChange = function (v) {
+    return input.onChange(v);
   };
+
+  var clearInput = function clearInput(event) {
+    handleChange('');
+    event.currentTarget.parentElement.querySelector('input').focus();
+  };
+
+  // let inputProps = inputPropsProp;
+  inputProps.size = size;
+  if (inputClassName) {
+    inputProps.className = inputClassName;
+  }
+
   return _react2["default"].createElement(
     _materialUi.FormControl,
-    null,
-    _react2["default"].createElement(
+    _extends({ fullWidth: fullWidth, ref: rootRef, className: className, error: !!(meta.touched && meta.error), required: required, margin: margin }, other),
+    label && _react2["default"].createElement(
       _materialUi.InputLabel,
-      _extends({ htmlFor: id }, labelProps, { classes: {
-          formControl: classes.labelFormControl,
-          shrink: classes.labelShrink
-        } }),
+      _extends({ style: {
+          marginLeft: 24
+        }, htmlFor: id, className: labelClassName }, InputLabelProps),
       label
     ),
-    _react2["default"].createElement(_materialUi.Input, { id: id, onChange: function (e) {
+    _react2["default"].createElement(_materialUi.Input, _extends({ id: id, inputProps: inputProps, inputRef: inputRef, placeholder: placeholder, classes: {
+        focused: classes.muiInputFocused,
+        error: classes.muiInputError
+      }, onChange: function (e) {
         return handleChange(e.currentTarget.value);
-      }, value: value, inputProps: {
-        size: size
       }, style: {
-        paddingLeft: 32,
-        paddingRight: 22
-      } }),
+        marginLeft: 24,
+        paddingRight: clear ? 22 : 0
+      }, autoComplete: autoComplete, autoFocus: autoFocus, className: InputClassName, defaultValue: defaultValue, disabled: disabled, multiline: multiline, name: name, rows: rows, rowsMax: rowsMax, type: type, value: input.value || value, id: id }, InputProps)),
     _react2["default"].createElement(
       "div",
-      { style: {
-          position: "absolute",
-          width: 24,
-          height: 24,
-          top: 18
-        } },
+      { className: classes.xInputIcon },
       icon
     ),
-    value && _react2["default"].createElement(
-      _materialUi.IconButton,
-      { onClick: function () {
-          return handleChange('');
+    clear && value && _react2["default"].createElement(
+      _materialUiIconButton2["default"],
+      { onClick: function (event) {
+          return clearInput(event);
         }, style: {
           position: "absolute",
           width: 24,
@@ -246,10 +308,12 @@ var _MuiCustomTextField = function _MuiCustomTextField(_ref6) {
           height: 16
         } })
     ),
-    helperText && _react2["default"].createElement(
+    (meta.touched && meta.error || helperText) && _react2["default"].createElement(
       _materialUi.FormHelperText,
-      null,
-      helperText
+      _extends({ className: helperTextClassName }, FormHelperTextProps, { style: {
+          marginLeft: 24
+        } }),
+      meta.touched && meta.error || helperText
     )
   );
 };

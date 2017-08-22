@@ -23,7 +23,9 @@ var _reactRouterDom = require("react-router-dom");
 
 // MaterialUI
 
-var _materialUi = require("material-ui");
+var _materialUiMenu = require("material-ui/Menu");
+
+var _materialUiList = require("material-ui/List");
 
 var _materialUiStyles = require('material-ui/styles');
 
@@ -98,11 +100,11 @@ var _MenuLink = function _MenuLink(_ref) {
     _reactRouterDom.NavLink,
     _extends({ to: to }, rest, { className: classes.link, exact: true }),
     _react2["default"].createElement(
-      _materialUi.ListItem,
+      _materialUiList.ListItem,
       { button: true, color: "primary", dense: true, classes: {
           root: classes.linkItem
         } },
-      _react2["default"].createElement(_materialUi.ListItemText, { inset: indent, primary: title, classes: {
+      _react2["default"].createElement(_materialUiList.ListItemText, { inset: indent, primary: title, classes: {
           text: classes.linkText,
           inset: classes.linkIndent
         } })
@@ -132,7 +134,7 @@ var _MenuGroup = function _MenuGroup(_ref2) {
     "div",
     null,
     _react2["default"].createElement(
-      _materialUi.ListSubheader,
+      _materialUiList.ListSubheader,
       { className: classes.menuGroupTitle },
       title
     ),
@@ -165,14 +167,14 @@ var _IconMenuItem = function _IconMenuItem(_ref3) {
     text: classes.iconMenuItemText
   };
   return _react2["default"].createElement(
-    _materialUi.MenuItem,
+    _materialUiMenu.MenuItem,
     _extends({}, rest, { className: classes.iconMenuItem }),
     _react2["default"].createElement(
-      _materialUi.ListItemIcon,
+      _materialUiList.ListItemIcon,
       { className: classes.iconMenuItemIcon },
       icon
     ),
-    _react2["default"].createElement(_materialUi.ListItemText, { classes: textStyle, primary: title })
+    _react2["default"].createElement(_materialUiList.ListItemText, { classes: textStyle, primary: title })
   );
 };
 _IconMenuItem.muiName = "MuiIconMenuItem";

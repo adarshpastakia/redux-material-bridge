@@ -50,7 +50,9 @@ var ReduxRoot = function ReduxRoot(_ref) {
     { store: store },
     _react2["default"].createElement(
       _reactRouterRedux.ConnectedRouter,
-      { history: history },
+      { history: history, onUpdate: function () {
+          return window.scrollTo(0, 0);
+        } },
       children
     )
   );

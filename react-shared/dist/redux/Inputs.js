@@ -21,13 +21,15 @@ var _propTypes = require("prop-types");
 
 var _reduxForm = require("redux-form");
 
+var _materialUiIcons = require("material-ui-icons");
+
 var _material = require("../material");
 
 require("../shared/phonelib");
 
 // Email Input
 var _ReduxEmailInput = function _ReduxEmailInput(props) {
-  return _react2["default"].createElement(_reduxForm.Field, _extends({ type: "email", component: _material.MuiTextField }, props, { normalize: function (value) {
+  return _react2["default"].createElement(_reduxForm.Field, _extends({ type: "email", component: _material.MuiCustomTextField, icon: _react2["default"].createElement(_materialUiIcons.Email, null), clear: false }, props, { normalize: function (value) {
       return value.toLowerCase();
     } }));
 };
@@ -45,7 +47,7 @@ var formatter = function formatter(value) {
 var _ReduxPhoneInput = function _ReduxPhoneInput(_ref) {
   var props = _objectWithoutProperties(_ref, []);
 
-  return _react2["default"].createElement(_reduxForm.Field, _extends({ type: "tel", component: _material.MuiTextField }, props, { format: formatter, parse: parser, placeholder: PhoneLib.getExample('us', PhoneLib.FORMAT.INTERNATIONAL) }));
+  return _react2["default"].createElement(_reduxForm.Field, _extends({ type: "tel", component: _material.MuiCustomTextField, icon: _react2["default"].createElement(_materialUiIcons.Phone, null), clear: false }, props, { format: formatter, parse: parser, placeholder: PhoneLib.getExample('us', PhoneLib.FORMAT.INTERNATIONAL) }));
 };
 _ReduxPhoneInput.muiName = "ReduxPhoneInput";
 var ReduxPhoneInput = _ReduxPhoneInput;

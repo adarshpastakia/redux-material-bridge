@@ -21,7 +21,29 @@ var _propTypes = require("prop-types");
 
 var _reactRouterDom = require("react-router-dom");
 
-var _materialUi = require("material-ui");
+var _materialUiAppBar = require("material-ui/AppBar");
+
+var _materialUiAppBar2 = _interopRequireDefault(_materialUiAppBar);
+
+var _materialUiGrid = require("material-ui/Grid");
+
+var _materialUiGrid2 = _interopRequireDefault(_materialUiGrid);
+
+var _materialUiHidden = require("material-ui/Hidden");
+
+var _materialUiHidden2 = _interopRequireDefault(_materialUiHidden);
+
+var _materialUiIconButton = require("material-ui/IconButton");
+
+var _materialUiIconButton2 = _interopRequireDefault(_materialUiIconButton);
+
+var _materialUiToolbar = require("material-ui/Toolbar");
+
+var _materialUiToolbar2 = _interopRequireDefault(_materialUiToolbar);
+
+var _materialUiTypography = require("material-ui/Typography");
+
+var _materialUiTypography2 = _interopRequireDefault(_materialUiTypography);
 
 var _materialUiIcons = require("material-ui-icons");
 
@@ -64,15 +86,15 @@ var _AppHeader = function _AppHeader(_ref) {
   var rest = _objectWithoutProperties(_ref, ["title", "subtitle", "showMenuIcon", "children", "classes", "openMenu", "height"]);
 
   return _react2["default"].createElement(
-    _materialUi.AppBar,
+    _materialUiAppBar2["default"],
     _extends({ position: "fixed" }, rest, { style: {
         height: height
       } }),
     _react2["default"].createElement(
-      _materialUi.Toolbar,
+      _materialUiToolbar2["default"],
       { className: classes.headerToolbar, disableGutters: true },
       showMenuIcon === true && _react2["default"].createElement(
-        _materialUi.IconButton,
+        _materialUiIconButton2["default"],
         { className: classes.menuIcon, onClick: openMenu },
         _react2["default"].createElement(_materialUiIcons.Menu, null)
       ),
@@ -85,7 +107,7 @@ var _AppHeader = function _AppHeader(_ref) {
           title
         ),
         subtitle && _react2["default"].createElement(
-          _materialUi.Hidden,
+          _materialUiHidden2["default"],
           { smDown: true },
           _react2["default"].createElement(
             "div",
@@ -94,7 +116,7 @@ var _AppHeader = function _AppHeader(_ref) {
           )
         )
       ),
-      _react2["default"].createElement(_materialUi.Grid, { item: true, xs: true }),
+      _react2["default"].createElement(_materialUiGrid2["default"], { item: true, xs: true }),
       " ",
       children
     )

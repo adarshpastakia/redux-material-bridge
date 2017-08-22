@@ -142,6 +142,8 @@ exports["default"] = function (_ref) {
     typography: typography
   });
 
+  console.info(theme);
+
   return _react2["default"].createElement(
     "div",
     { style: {
