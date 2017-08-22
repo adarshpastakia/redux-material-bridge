@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://adarshpastakia.github.io/redux-material-bridge/",
   "dependencies": {
-    "material-ui": "^1.0.0-beta.5",
+    "material-ui": "^1.0.0-beta.6",
     "material-ui-icons": "^1.0.0-alpha.19",
     "moment": "^2.18.1",
     "numeral": "^2.0.6",
