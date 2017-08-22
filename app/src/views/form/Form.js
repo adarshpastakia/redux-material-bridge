@@ -6,7 +6,6 @@ import {connect} from "react-redux";
 import {Field, reduxForm, formValueSelector} from "redux-form";
 
 import moment from "moment";
-import numeral from "numeral";
 
 // MaterialUI
 import {
@@ -16,7 +15,6 @@ import {
   Typography,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText
 } from "material-ui";
 import {withStyles} from "material-ui/styles";
@@ -27,12 +25,10 @@ import {
   PhoneLib,
   MuiForm,
   MuiTextField,
-  MuiCheckbox,
   ReduxEmailInput,
   ReduxPhoneInput,
   MuiSection,
-  MuiFieldSet,
-  MuiStickySection
+  MuiFieldSet
 } from "redux-material-bridge";
 
 const validate = values => {
@@ -78,7 +74,7 @@ class _Form extends Component {
   }
 
   render() {
-    const {classes, handleSubmit, formValues} = this.props;
+    const {handleSubmit, formValues} = this.props;
     const inputProps = {
       style: {
         height: 'auto'
