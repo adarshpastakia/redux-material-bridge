@@ -5,14 +5,12 @@ import React from "react";
 import {PropTypes} from "prop-types";
 import {NavLink} from "react-router-dom";
 
-import {
-  AppBar,
-  Grid,
-  Toolbar,
-  IconButton,
-  Hidden,
-  Typography
-} from "material-ui";
+import AppBar from "material-ui/AppBar";
+import Grid from "material-ui/Grid";
+import Hidden from "material-ui/Hidden";
+import IconButton from "material-ui/IconButton";
+import Toolbar from "material-ui/Toolbar";
+import Typography from "material-ui/Typography";
 import {Menu} from "material-ui-icons";
 import {withStyles} from 'material-ui/styles';
 

@@ -6,7 +6,8 @@ import {PropTypes} from "prop-types";
 import {NavLink} from "react-router-dom";
 
 // MaterialUI
-import {MenuItem, ListItem, ListItemText, ListItemIcon, ListSubheader} from "material-ui";
+import {MenuItem} from "material-ui/Menu";
+import {ListItem, ListItemText, ListItemIcon, ListSubheader} from "material-ui/List";
 import {withStyles} from 'material-ui/styles';
 
 const styleSheet = (theme => ({
