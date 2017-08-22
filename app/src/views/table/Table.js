@@ -4,6 +4,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
+import * as _ from "lodash";
 import moment from "moment";
 import numeral from "numeral";
 
@@ -66,9 +67,9 @@ numeral.zeroFormat('N/A');
 numeral.nullFormat('N/A');
 numeral.locales.en.currency.symbol = "\u20A8";
 
-const data = [];
+const records = [];
 for (var i = 0; i < 50; i++)
-  data.push({
+  records.push({
     id: i,
     text: "Sample Text",
     date: moment().add(Math.random() * 365 * 9, "days"),
@@ -81,7 +82,13 @@ class _Table extends Component {
   state = {
     sortColumn: 'text',
     sortOrder: 'asc',
+    data: [],
     filterValue: 'Filtered text...'
+  }
+
+  componentDidMount() {
+    let {sortColumn, sortOrder} = this.state;
+    this.sortList(sortColumn, sortOrder);
   }
 
   formatDisplay(value, format, numeric) {
@@ -103,12 +110,19 @@ class _Table extends Component {
       sortColumn = id;
       sortOrder = "asc";
     }
-    this.setState({sortOrder, sortColumn});
+    this.sortList(sortColumn, sortOrder);
+  }
+
+  sortList(sortColumn, sortOrder) {
+    const data = _.orderBy(records, [
+      sortColumn, 'id'
+    ], [sortOrder, sortOrder]);
+    this.setState({data, sortColumn, sortOrder});
   }
 
   render() {
-    const {classes} = this.props;
-    const {sortColumn, sortOrder, filterValue} = this.state;
+    // const {classes} = this.props;
+    const {sortColumn, sortOrder, filterValue, data} = this.state;
     return (
       <MuiSection>
         <MuiStickySection padding="h">
