@@ -24,12 +24,12 @@ export const ReduxRoot = (({
   basename = "/",
   children
 }) => {
-  const history = createHistory({ basename });
+  const history = createHistory({basename});
   const store = createStore(combineReducers(Object.assign(reducers, {form, routing})), applyMiddleware(thunk), applyMiddleware(routerMiddleware(history)));
 
   return (
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <ConnectedRouter history={history} onUpdate={() => window.scrollTo(0, 0)}>
         {children}
       </ConnectedRouter>
     </Provider>
