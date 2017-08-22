@@ -4,7 +4,7 @@
 import React from "react";
 import {PropTypes} from "prop-types";
 
-import {IconButton} from "material-ui";
+import IconButton from "material-ui/IconButton";
 import {Clear, ModeEdit} from "material-ui-icons";
 import {withStyles} from 'material-ui/styles';
 
@@ -44,6 +44,7 @@ const _TextField = ({
   input,
   label,
   tabIdx,
+  helperText,
   meta: {
     touched,
     error
@@ -59,7 +60,7 @@ const _TextField = ({
   }
 }} InputLabelProps={{
   shrink: shrinkLabel
-}} required={required} margin={margin} error={!!(touched && error)} helperText={touched && error} inputRef={inputRef} tabIndex={tabIdx} label={label} onChange={(value) => input.onChange(value)} value={input.value} {...custom}/>);
+}} required={required} margin={margin} error={!!(touched && error)} helperText={(touched && error) || helperText} inputRef={inputRef} tabIndex={tabIdx} label={label} onChange={(value) => input.onChange(value)} value={input.value} {...custom}/>);
 _TextField.muiName = "MuiTextField";
 _TextField.propTypes = {
   label: PropTypes.string,
@@ -128,55 +129,113 @@ _RadioGroup.propTypes = {
 export const MuiRadioGroup = _RadioGroup;
 
 // CustomTextField
-const styleSheet = ({
-  labelFormControl: {
-    transform: "translate(32px, 23px) scale(1)"
+const styleSheet = (theme => ({
+  muiInputFocused: {
+    '& + $xInputIcon': {
+      color: theme.palette.primary[500]
+    }
   },
-  labelShrink: {
-    transform: "translate(0,0) scale(.75)"
+  muiInputError: {
+    '& + $xInputIcon': {
+      color: theme.palette.error[500]
+    }
+  },
+  xInputIcon: {
+    position: "absolute",
+    top: 22,
+    width: 20,
+    height: 20,
+    color: theme.palette.grey[500],
+    '& > svg': {
+      width: 20,
+      height: 20
+    }
   }
-});
+}));
 const _MuiCustomTextField = ({
   id = `MuiControl${new Date().getTime()}`,
   label,
+  margin = "dense",
   icon = (<ModeEdit/>),
   clear,
-  value,
-  shrinkLabel,
-  helperText,
   classes,
+  shrinkLabel,
+  input = {},
+  meta = {},
   size = 20,
   handleChange = () => true,
-  ...custom
+  autoComplete,
+  autoFocus,
+  className,
+  defaultValue,
+  disabled,
+  inputClassName,
+  InputClassName,
+  InputProps = {},
+  inputProps = {},
+  inputRef,
+  labelClassName,
+  InputLabelProps,
+  helperText,
+  helperTextClassName,
+  FormHelperTextProps,
+  fullWidth,
+  required,
+  type,
+  multiline,
+  name,
+  placeholder,
+  rootRef,
+  rows,
+  rowsMax,
+  value = '',
+  ...other
 }) => {
-  let labelProps = {};
   if (shrinkLabel)
-    labelProps = {
-      shrink: true
-    };
+    other.shrink = true;
+
+  if (input.onChange)
+    handleChange = v => input.onChange(v);
+
+  const clearInput = (event) => {
+    handleChange('');
+    event
+      .currentTarget
+      .parentElement
+      .querySelector('input')
+      .focus();
+  }
+
+  // let inputProps = inputPropsProp;
+  inputProps.size = size;
+  if (inputClassName) {
+    inputProps.className = inputClassName;
+  }
+
   return (
-    <FormControl>
-      <InputLabel htmlFor={id} {...labelProps} classes={{
-        formControl: classes.labelFormControl,
-        shrink: classes.labelShrink
-      }}>{label}</InputLabel>
+    <FormControl fullWidth={fullWidth} ref={rootRef} className={className} error={!!(meta.touched && meta.error)} required={required} margin={margin} {...other}>
+      {label && (
+        <InputLabel style={{
+          marginLeft: 24
+        }} htmlFor={id} className={labelClassName} {...InputLabelProps}>
+          {label}
+        </InputLabel>
+      )}
 
-      <Input id={id} onChange={(e) => handleChange(e.currentTarget.value)} value={value} inputProps={{
-        size
-      }} style={{
-        paddingLeft: 32,
-        paddingRight: 22
-      }}/>
+      <Input id={id} inputProps={inputProps} inputRef={inputRef} placeholder={placeholder} classes={{
+        focused: classes.muiInputFocused,
+        error: classes.muiInputError
+      }} onChange={(e) => handleChange(e.currentTarget.value)} style={{
+        marginLeft: 24,
+        paddingRight: (clear
+          ? 22
+          : 0)
+      }} autoComplete={autoComplete} autoFocus={autoFocus} className={InputClassName} defaultValue={defaultValue} disabled={disabled} multiline={multiline} name={name} rows={rows} rowsMax={rowsMax} type={type} value={input.value || value} id={id} {...InputProps}/>
 
-      <div style={{
-        position: "absolute",
-        width: 24,
-        height: 24,
-        top: 18
-      }}>{icon}</div>
+      <div className={classes.xInputIcon}>{icon}</div>
 
-      {value && (
-        <IconButton onClick={() => handleChange('')} style={{
+      {clear && value && (
+        <IconButton onClick={event => clearInput(event)} style={{
           position: "absolute",
           width: 24,
           height: 24,
@@ -189,8 +248,12 @@ const _MuiCustomTextField = ({
           }}/></IconButton>
       )}
 
-      {helperText && (
-        <FormHelperText>{helperText}</FormHelperText>
+      {((meta.touched && meta.error) || helperText) && (
+        <FormHelperText className={helperTextClassName} {...FormHelperTextProps} style={{
+          marginLeft: 24
+        }}>
+          {((meta.touched && meta.error) || helperText)}
+        </FormHelperText>
       )}
     </FormControl>
   );
