@@ -129,7 +129,7 @@ class _Table extends Component {
           <Toolbar disableGutters>
             <Typography type="headline" color="accent">Table Example</Typography>
             <Grid item xs/>
-            <MuiCustomTextField shrinkLabel={true} placeholder="Filter list..." label="Filter" size={30} icon={(<Search/>)} value={filterValue} handleChange={filterValue => this.setState({filterValue})}/>
+            <MuiCustomTextField clear shrinkLabel={false} placeholder="Filter list..." label="Filter" icon={(<Search/>)} size={30} margin="none" value={filterValue} handleChange={filterValue => this.setState({filterValue})}/>
           </Toolbar>
           <Table>
             <TableHead>

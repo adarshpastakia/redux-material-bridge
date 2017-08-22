@@ -37,7 +37,7 @@ class _Tabs extends Component {
         <Typography type="headline" color="accent">Tabs Example</Typography>
         <Card className={classes.card}>
           <AppBar color="default" position="static">
-            <Tabs value={this.state.tabSelected} textColor="accent" onChange={(event, tabSelected) => this.setState({tabSelected})}>
+            <Tabs fullWidth value={this.state.tabSelected} textColor="accent" onChange={(event, tabSelected) => this.setState({tabSelected})}>
               <Tab label="Item One"/>
               <Tab label="Item Two"/>
               <Tab label="Item Three"/>
