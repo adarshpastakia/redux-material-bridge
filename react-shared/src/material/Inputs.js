@@ -69,6 +69,39 @@ _TextField.propTypes = {
 }
 export const MuiTextField = _TextField;
 
+// Select
+const _SelectField = ({
+  id = `MuiControl${new Date().getTime()}`,
+  input,
+  label,
+  tabIdx,
+  helperText,
+  meta: {
+    touched,
+    error
+  },
+  inputRef,
+  shrinkLabel = undefined,
+  required = false,
+  margin = "dense",
+  children,
+  ...custom
+}) => (<TextField select id={id} InputProps={{
+  style: {
+    marginTop: 16
+  }
+}} InputLabelProps={{
+  shrink: shrinkLabel
+}} required={required} margin={margin} error={!!(touched && error)} helperText={(touched && error) || helperText} inputRef={inputRef} tabIndex={tabIdx} label={label} onChange={(event) => input.onChange(event.target.value)} value={input.value} {...custom}>{children}</TextField>);
+_SelectField.muiName = "MuiSelectField";
+_SelectField.propTypes = {
+  label: PropTypes.string,
+  inputRef: PropTypes.func,
+  tabIdx: PropTypes.number,
+  options: PropTypes.array
+}
+export const MuiSelectField = _SelectField;
+
 // Checkbox
 const _Checkbox = ({
   input,
