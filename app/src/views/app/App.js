@@ -20,9 +20,9 @@ import {
   ListItemSecondaryAction,
   Paper,
   Divider,
+  Popover,
   Typography
 } from "material-ui";
-import Popover from "material-ui/internal/Popover";
 import {
   MoreVert,
   Person,
@@ -41,7 +41,14 @@ import {
   MuiMenuGroup,
   MuiIconMenuItem
 } from "redux-material-bridge";
-import {UnknownRoute, Login, Table, Home, Form, Tabs} from "../index";
+import {
+  UnknownRoute,
+  Login,
+  Table,
+  Home,
+  Form,
+  Tabs
+} from "../index";
 
 import reactLogo from "../../assets/react.svg";
 import reduxLogo from "../../assets/redux.svg";

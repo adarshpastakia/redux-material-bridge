@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 // MaterialUI
 import {Typography, Grid, Card, CardHeader, Button} from "material-ui";
 import {withStyles} from "material-ui/styles";
-import {lightBlue} from "material-ui/colors";
+import {lightBlue, blueGrey} from "material-ui/colors";
 
 import reactLogo from "../../assets/react.png";
 import reduxLogo from "../../assets/redux.png";
@@ -15,10 +15,13 @@ import materialLogo from "../../assets/material.png";
 
 const styleSheet = (theme => ({
   padded: theme.padded,
+  materialVersion: Object.assign({
+    color: blueGrey[400]
+  }, theme.alignCenter),
   banner: {
     padding: '3em 1em',
     color: theme.colors.white,
-    background: theme.palette.accent[500]
+    background: theme.palette.secondary[500]
   },
   iconCard: {
     color: 'inherit',
@@ -118,6 +121,7 @@ class _Home extends Component {
               </Card>
             </Grid>
           </Grid>
+          <h4 className={classes.materialVersion}>Current MaterialUI Version 1.0.0-Beta.12</h4>
         </div>
       </div>
     )

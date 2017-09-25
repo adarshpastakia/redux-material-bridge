@@ -14,9 +14,14 @@ import registerServiceWorker from "./registerServiceWorker";
 
 // import "redux-material-bridge/dist/redux/phonelib";
 
+const baseName = '/';
+// process.env.production
+//   ? "/redux-material-bridge"
+//   : "/";
+
 // Main app view fragment
 ReactDOM.render((
-  <ReduxRoot reducers={reducer} basename="/redux-material-bridge">
+  <ReduxRoot reducers={reducer} basename={baseName}>
     <MuiTheme primary={blue} accent={pink} grey={blueGrey} type="light" font="Open Sans">
       <MuiRootContainer withFooter>
         <App/>
