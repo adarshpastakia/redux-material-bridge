@@ -2,18 +2,24 @@
 // Copyright © 2017, Innominds Software
 
 import React from "react";
-import {MuiThemeProvider, createMuiTheme, createPalette, createTypography} from "material-ui/styles";
+import createPalette from "material-ui/styles/createPalette";
+import createTypography from "material-ui/styles/createTypography";
+import {MuiThemeProvider, createMuiTheme} from "material-ui/styles";
 import {blue, pink, blueGrey} from "material-ui/colors";
+import {logger} from "../index";
 
 export default(({
   type = "light",
   font = "Roboto",
   primary = blue,
-  accent = pink,
+  secondary = pink,
   grey = blueGrey,
   children
 }) => {
-  const palette = createPalette({type, primary, accent, grey});
+  const palette = createPalette({type, primary, secondary, grey});
+
+  logger.info("Palette", palette);
+
   const typography = createTypography(palette, {
     fontSize: 13,
     fontFamily: `${font}, 'Roboto', 'Helevetica Neue', 'Segoe UI', Arial, sans-serif`
@@ -29,7 +35,7 @@ export default(({
     direction: "ltr",
     colors: {
       primary: palette.primary[500],
-      secondary: palette.accent[500],
+      secondary: palette.secondary[500],
 
       info: "#29B6F6",
       danger: "#E53935",
@@ -56,6 +62,15 @@ export default(({
     paddedV: {
       paddingTop: 24,
       paddingBottom: 24
+    },
+    alignLeft: {
+      textAlign: 'left'
+    },
+    alignCenter: {
+      textAlign: 'center'
+    },
+    alignRight: {
+      textAlign: 'right'
     },
     icon: {
       small: {
@@ -126,6 +141,8 @@ export default(({
     palette,
     typography
   });
+
+  logger.info("MaterialTheme", theme);
 
   return (
     <div style={{

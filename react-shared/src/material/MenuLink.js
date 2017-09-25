@@ -15,7 +15,7 @@ const styleSheet = (theme => ({
     color: theme.palette.text.primary,
     textDecoration: 'none',
     '&.active > li': {
-      boxShadow: `5px 0 0 0 ${theme.palette.accent['700']} inset`
+      boxShadow: `5px 0 0 0 ${theme.palette.secondary['700']} inset`
     }
   },
   linkItem: {
