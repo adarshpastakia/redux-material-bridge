@@ -13,9 +13,19 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _materialUiStylesCreatePalette = require("material-ui/styles/createPalette");
+
+var _materialUiStylesCreatePalette2 = _interopRequireDefault(_materialUiStylesCreatePalette);
+
+var _materialUiStylesCreateTypography = require("material-ui/styles/createTypography");
+
+var _materialUiStylesCreateTypography2 = _interopRequireDefault(_materialUiStylesCreateTypography);
+
 var _materialUiStyles = require("material-ui/styles");
 
 var _materialUiColors = require("material-ui/colors");
+
+var _index = require("../index");
 
 exports["default"] = function (_ref) {
   var _ref$type = _ref.type;
@@ -24,14 +34,17 @@ exports["default"] = function (_ref) {
   var font = _ref$font === undefined ? "Roboto" : _ref$font;
   var _ref$primary = _ref.primary;
   var primary = _ref$primary === undefined ? _materialUiColors.blue : _ref$primary;
-  var _ref$accent = _ref.accent;
-  var accent = _ref$accent === undefined ? _materialUiColors.pink : _ref$accent;
+  var _ref$secondary = _ref.secondary;
+  var secondary = _ref$secondary === undefined ? _materialUiColors.pink : _ref$secondary;
   var _ref$grey = _ref.grey;
   var grey = _ref$grey === undefined ? _materialUiColors.blueGrey : _ref$grey;
   var children = _ref.children;
 
-  var palette = (0, _materialUiStyles.createPalette)({ type: type, primary: primary, accent: accent, grey: grey });
-  var typography = (0, _materialUiStyles.createTypography)(palette, {
+  var palette = (0, _materialUiStylesCreatePalette2["default"])({ type: type, primary: primary, secondary: secondary, grey: grey });
+
+  _index.logger.info("Palette", palette);
+
+  var typography = (0, _materialUiStylesCreateTypography2["default"])(palette, {
     fontSize: 13,
     fontFamily: font + ", 'Roboto', 'Helevetica Neue', 'Segoe UI', Arial, sans-serif"
   });
@@ -46,7 +59,7 @@ exports["default"] = function (_ref) {
     direction: "ltr",
     colors: {
       primary: palette.primary[500],
-      secondary: palette.accent[500],
+      secondary: palette.secondary[500],
 
       info: "#29B6F6",
       danger: "#E53935",
@@ -73,6 +86,15 @@ exports["default"] = function (_ref) {
     paddedV: {
       paddingTop: 24,
       paddingBottom: 24
+    },
+    alignLeft: {
+      textAlign: 'left'
+    },
+    alignCenter: {
+      textAlign: 'center'
+    },
+    alignRight: {
+      textAlign: 'right'
     },
     icon: {
       small: {
@@ -142,7 +164,7 @@ exports["default"] = function (_ref) {
     typography: typography
   });
 
-  console.info(theme);
+  _index.logger.info("MaterialTheme", theme);
 
   return _react2["default"].createElement(
     "div",

@@ -93,16 +93,62 @@ _TextField.propTypes = {
 var MuiTextField = _TextField;
 
 exports.MuiTextField = MuiTextField;
-// Checkbox
-var _Checkbox = function _Checkbox(_ref3) {
+// Select
+var _SelectField = function _SelectField(_ref3) {
+  var _ref3$id = _ref3.id;
+  var id = _ref3$id === undefined ? "MuiControl" + new Date().getTime() : _ref3$id;
   var input = _ref3.input;
   var label = _ref3.label;
   var tabIdx = _ref3.tabIdx;
-  var meta = _ref3.meta;
+  var helperText = _ref3.helperText;
+  var _ref3$meta = _ref3.meta;
+  var touched = _ref3$meta.touched;
+  var error = _ref3$meta.error;
   var inputRef = _ref3.inputRef;
-  var value = _ref3.value;
+  var _ref3$shrinkLabel = _ref3.shrinkLabel;
+  var shrinkLabel = _ref3$shrinkLabel === undefined ? undefined : _ref3$shrinkLabel;
+  var _ref3$required = _ref3.required;
+  var required = _ref3$required === undefined ? false : _ref3$required;
+  var _ref3$margin = _ref3.margin;
+  var margin = _ref3$margin === undefined ? "dense" : _ref3$margin;
+  var children = _ref3.children;
 
-  var custom = _objectWithoutProperties(_ref3, ["input", "label", "tabIdx", "meta", "inputRef", "value"]);
+  var custom = _objectWithoutProperties(_ref3, ["id", "input", "label", "tabIdx", "helperText", "meta", "inputRef", "shrinkLabel", "required", "margin", "children"]);
+
+  return _react2["default"].createElement(
+    _materialUi.TextField,
+    _extends({ select: true, id: id, InputProps: {
+        style: {
+          marginTop: 16
+        }
+      }, InputLabelProps: {
+        shrink: shrinkLabel
+      }, required: required, margin: margin, error: !!(touched && error), helperText: touched && error || helperText, inputRef: inputRef, tabIndex: tabIdx, label: label, onChange: function (event) {
+        return input.onChange(event.target.value);
+      }, value: input.value }, custom),
+    children
+  );
+};
+_SelectField.muiName = "MuiSelectField";
+_SelectField.propTypes = {
+  label: _propTypes.PropTypes.string,
+  inputRef: _propTypes.PropTypes.func,
+  tabIdx: _propTypes.PropTypes.number,
+  options: _propTypes.PropTypes.array
+};
+var MuiSelectField = _SelectField;
+
+exports.MuiSelectField = MuiSelectField;
+// Checkbox
+var _Checkbox = function _Checkbox(_ref4) {
+  var input = _ref4.input;
+  var label = _ref4.label;
+  var tabIdx = _ref4.tabIdx;
+  var meta = _ref4.meta;
+  var inputRef = _ref4.inputRef;
+  var value = _ref4.value;
+
+  var custom = _objectWithoutProperties(_ref4, ["input", "label", "tabIdx", "meta", "inputRef", "value"]);
 
   return _react2["default"].createElement(_materialUi.FormControlLabel, { value: value, label: label, control: _react2["default"].createElement(_materialUi.Checkbox, _extends({ inputRef: inputRef, tabIndex: tabIdx, onChange: function (event, value) {
         return input.onChange(value);
@@ -118,13 +164,13 @@ var MuiCheckbox = _Checkbox;
 
 exports.MuiCheckbox = MuiCheckbox;
 // Radio
-var _Radio = function _Radio(_ref4) {
-  var label = _ref4.label;
-  var tabIdx = _ref4.tabIdx;
-  var inputRef = _ref4.inputRef;
-  var value = _ref4.value;
+var _Radio = function _Radio(_ref5) {
+  var label = _ref5.label;
+  var tabIdx = _ref5.tabIdx;
+  var inputRef = _ref5.inputRef;
+  var value = _ref5.value;
 
-  var custom = _objectWithoutProperties(_ref4, ["label", "tabIdx", "inputRef", "value"]);
+  var custom = _objectWithoutProperties(_ref5, ["label", "tabIdx", "inputRef", "value"]);
 
   return _react2["default"].createElement(_materialUi.FormControlLabel, { value: value, label: label, control: _react2["default"].createElement(_materialUi.Radio, _extends({ inputRef: inputRef }, custom)) });
 };
@@ -138,16 +184,16 @@ var MuiRadio = _Radio;
 
 exports.MuiRadio = MuiRadio;
 // RadioGroup
-var _RadioGroup = function _RadioGroup(_ref5) {
-  var name = _ref5.name;
-  var label = _ref5.label;
-  var input = _ref5.input;
-  var meta = _ref5.meta;
-  var _ref5$required = _ref5.required;
-  var required = _ref5$required === undefined ? false : _ref5$required;
-  var children = _ref5.children;
+var _RadioGroup = function _RadioGroup(_ref6) {
+  var name = _ref6.name;
+  var label = _ref6.label;
+  var input = _ref6.input;
+  var meta = _ref6.meta;
+  var _ref6$required = _ref6.required;
+  var required = _ref6$required === undefined ? false : _ref6$required;
+  var children = _ref6.children;
 
-  var custom = _objectWithoutProperties(_ref5, ["name", "label", "input", "meta", "required", "children"]);
+  var custom = _objectWithoutProperties(_ref6, ["name", "label", "input", "meta", "required", "children"]);
 
   return _react2["default"].createElement(
     _materialUi.FormControl,
@@ -199,57 +245,57 @@ var styleSheet = function styleSheet(theme) {
     }
   };
 };
-var _MuiCustomTextField = function _MuiCustomTextField(_ref6) {
-  var _ref6$id = _ref6.id;
-  var id = _ref6$id === undefined ? "MuiControl" + new Date().getTime() : _ref6$id;
-  var label = _ref6.label;
-  var _ref6$margin = _ref6.margin;
-  var margin = _ref6$margin === undefined ? "dense" : _ref6$margin;
-  var _ref6$icon = _ref6.icon;
-  var icon = _ref6$icon === undefined ? _react2["default"].createElement(_materialUiIcons.ModeEdit, null) : _ref6$icon;
-  var clear = _ref6.clear;
-  var classes = _ref6.classes;
-  var shrinkLabel = _ref6.shrinkLabel;
-  var _ref6$input = _ref6.input;
-  var input = _ref6$input === undefined ? {} : _ref6$input;
-  var _ref6$meta = _ref6.meta;
-  var meta = _ref6$meta === undefined ? {} : _ref6$meta;
-  var _ref6$size = _ref6.size;
-  var size = _ref6$size === undefined ? 20 : _ref6$size;
-  var _ref6$handleChange = _ref6.handleChange;
-  var handleChange = _ref6$handleChange === undefined ? function () {
+var _MuiCustomTextField = function _MuiCustomTextField(_ref7) {
+  var _ref7$id = _ref7.id;
+  var id = _ref7$id === undefined ? "MuiControl" + new Date().getTime() : _ref7$id;
+  var label = _ref7.label;
+  var _ref7$margin = _ref7.margin;
+  var margin = _ref7$margin === undefined ? "dense" : _ref7$margin;
+  var _ref7$icon = _ref7.icon;
+  var icon = _ref7$icon === undefined ? _react2["default"].createElement(_materialUiIcons.ModeEdit, null) : _ref7$icon;
+  var clear = _ref7.clear;
+  var classes = _ref7.classes;
+  var shrinkLabel = _ref7.shrinkLabel;
+  var _ref7$input = _ref7.input;
+  var input = _ref7$input === undefined ? {} : _ref7$input;
+  var _ref7$meta = _ref7.meta;
+  var meta = _ref7$meta === undefined ? {} : _ref7$meta;
+  var _ref7$size = _ref7.size;
+  var size = _ref7$size === undefined ? 20 : _ref7$size;
+  var _ref7$handleChange = _ref7.handleChange;
+  var handleChange = _ref7$handleChange === undefined ? function () {
     return true;
-  } : _ref6$handleChange;
-  var autoComplete = _ref6.autoComplete;
-  var autoFocus = _ref6.autoFocus;
-  var className = _ref6.className;
-  var defaultValue = _ref6.defaultValue;
-  var disabled = _ref6.disabled;
-  var inputClassName = _ref6.inputClassName;
-  var InputClassName = _ref6.InputClassName;
-  var _ref6$InputProps = _ref6.InputProps;
-  var InputProps = _ref6$InputProps === undefined ? {} : _ref6$InputProps;
-  var _ref6$inputProps = _ref6.inputProps;
-  var inputProps = _ref6$inputProps === undefined ? {} : _ref6$inputProps;
-  var inputRef = _ref6.inputRef;
-  var labelClassName = _ref6.labelClassName;
-  var InputLabelProps = _ref6.InputLabelProps;
-  var helperText = _ref6.helperText;
-  var helperTextClassName = _ref6.helperTextClassName;
-  var FormHelperTextProps = _ref6.FormHelperTextProps;
-  var fullWidth = _ref6.fullWidth;
-  var required = _ref6.required;
-  var type = _ref6.type;
-  var multiline = _ref6.multiline;
-  var name = _ref6.name;
-  var placeholder = _ref6.placeholder;
-  var rootRef = _ref6.rootRef;
-  var rows = _ref6.rows;
-  var rowsMax = _ref6.rowsMax;
-  var _ref6$value = _ref6.value;
-  var value = _ref6$value === undefined ? '' : _ref6$value;
+  } : _ref7$handleChange;
+  var autoComplete = _ref7.autoComplete;
+  var autoFocus = _ref7.autoFocus;
+  var className = _ref7.className;
+  var defaultValue = _ref7.defaultValue;
+  var disabled = _ref7.disabled;
+  var inputClassName = _ref7.inputClassName;
+  var InputClassName = _ref7.InputClassName;
+  var _ref7$InputProps = _ref7.InputProps;
+  var InputProps = _ref7$InputProps === undefined ? {} : _ref7$InputProps;
+  var _ref7$inputProps = _ref7.inputProps;
+  var inputProps = _ref7$inputProps === undefined ? {} : _ref7$inputProps;
+  var inputRef = _ref7.inputRef;
+  var labelClassName = _ref7.labelClassName;
+  var InputLabelProps = _ref7.InputLabelProps;
+  var helperText = _ref7.helperText;
+  var helperTextClassName = _ref7.helperTextClassName;
+  var FormHelperTextProps = _ref7.FormHelperTextProps;
+  var fullWidth = _ref7.fullWidth;
+  var required = _ref7.required;
+  var type = _ref7.type;
+  var multiline = _ref7.multiline;
+  var name = _ref7.name;
+  var placeholder = _ref7.placeholder;
+  var rootRef = _ref7.rootRef;
+  var rows = _ref7.rows;
+  var rowsMax = _ref7.rowsMax;
+  var _ref7$value = _ref7.value;
+  var value = _ref7$value === undefined ? '' : _ref7$value;
 
-  var other = _objectWithoutProperties(_ref6, ["id", "label", "margin", "icon", "clear", "classes", "shrinkLabel", "input", "meta", "size", "handleChange", "autoComplete", "autoFocus", "className", "defaultValue", "disabled", "inputClassName", "InputClassName", "InputProps", "inputProps", "inputRef", "labelClassName", "InputLabelProps", "helperText", "helperTextClassName", "FormHelperTextProps", "fullWidth", "required", "type", "multiline", "name", "placeholder", "rootRef", "rows", "rowsMax", "value"]);
+  var other = _objectWithoutProperties(_ref7, ["id", "label", "margin", "icon", "clear", "classes", "shrinkLabel", "input", "meta", "size", "handleChange", "autoComplete", "autoFocus", "className", "defaultValue", "disabled", "inputClassName", "InputClassName", "InputProps", "inputProps", "inputRef", "labelClassName", "InputLabelProps", "helperText", "helperTextClassName", "FormHelperTextProps", "fullWidth", "required", "type", "multiline", "name", "placeholder", "rootRef", "rows", "rowsMax", "value"]);
 
   if (shrinkLabel) other.shrink = true;
 
