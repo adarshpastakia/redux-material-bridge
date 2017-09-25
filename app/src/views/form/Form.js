@@ -15,7 +15,8 @@ import {
   Typography,
   List,
   ListItem,
-  ListItemText
+  ListItemText,
+  MenuItem
 } from "material-ui";
 import {withStyles} from "material-ui/styles";
 
@@ -28,7 +29,8 @@ import {
   ReduxEmailInput,
   ReduxPhoneInput,
   MuiSection,
-  MuiFieldSet
+  MuiFieldSet,
+  MuiSelectField
 } from "redux-material-bridge";
 
 const validate = values => {
@@ -41,18 +43,32 @@ const validate = values => {
   }
   if (!values.email) {
     errors.email = "Required"
-  }
-  else if (!checkEmail(values.email)) {
+  } else if (!checkEmail(values.email)) {
     errors.email = "Invalid email"
   }
   if (!values.phone) {
     errors.phone = "Required"
-  }
-  else if (!checkPhone(values.phone)) {
+  } else if (!checkPhone(values.phone)) {
     errors.phone = "Invalid phone"
   }
   return errors
 }
+
+const countries = [
+  {
+    value: 'au',
+    label: 'Australia'
+  }, {
+    value: 'in',
+    label: 'India'
+  }, {
+    value: 'uk',
+    label: 'United Kingdom'
+  }, {
+    value: 'us',
+    label: 'United States'
+  }
+]
 
 const styleSheet = (theme => ({padded: theme.padded}));
 
@@ -60,6 +76,7 @@ const initialValues = {
   firstName: '',
   lastName: '',
   phone: '',
+  country: 'in',
   dateBirth: moment('1917-06-07')
 }
 
@@ -69,7 +86,9 @@ class _Form extends Component {
   }
 
   handleReset() {
-    this.props.reset();
+    this
+      .props
+      .reset();
     setTimeout(() => this.userInput.focus(), 100);
   }
 
@@ -97,12 +116,20 @@ class _Form extends Component {
                     <Field component={MuiTextField} name="address2" placeholder="Line 2 (Optional)" fullWidth/>
                     <Field component={MuiTextField} name="city" label="City" fullWidth required inputProps={inputProps}/>
                     <Field component={MuiTextField} name="state" label="State" fullWidth required inputProps={inputProps}/>
-                    <Field component={MuiTextField} name="country" label="Country" fullWidth required inputProps={inputProps}/>
+                    <Field component={MuiSelectField} name="country" label="Country" fullWidth required inputProps={inputProps}>
+                      {countries.map(option => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </Field>
                     <Field component={MuiTextField} name="zip" label="Zip" fullWidth required inputProps={inputProps}/>
                   </MuiFieldSet>
                 </MuiForm>
                 <Grid container justify="flex-end">
-                  <Button onClick={this.handleReset.bind(this)} color="primary">Reset</Button>
+                  <Button onClick={this
+                    .handleReset
+                    .bind(this)} color="primary">Reset</Button>
                   <Button onClick={handleSubmit(values => console.log(values))} raised color="primary">Submit</Button>
                 </Grid>
               </MuiSection>
