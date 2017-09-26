@@ -14,10 +14,9 @@ import registerServiceWorker from "./registerServiceWorker";
 
 // import "redux-material-bridge/dist/redux/phonelib";
 
-const baseName = '/';
-// process.env.production
-//   ? "/redux-material-bridge"
-//   : "/";
+const baseName = process.env.production
+  ? "/redux-material-bridge"
+  : "/";
 
 // Main app view fragment
 ReactDOM.render((

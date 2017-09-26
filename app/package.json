@@ -2,6 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://adarshpastakia.github.io/redux-material-bridge",
   "dependencies": {
     "material-ui": "^1.0.0-beta.12",
     "material-ui-icons": "^1.0.0-beta.5",
